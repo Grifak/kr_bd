@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+</head>
+<body>
+<p align="center"><font size = 20 color="#8fbc8f" face="serif" th:align="center">Автосервис SPOT</font></p>
+<p align="center"><font size = 5 color="#deb887" th:align="center">Добрый день Артем!</font></p>
+<div class="category-wrap">
+    <h3>Меню пользователя</h3>
+    <ul>
+        <li><a href="/bid/list">Список заявок</a></li>
+        <li><a href="/bid/boost">Добавить авто в заявку</a></li>
+        <li><a href="/bid/create">Создать заявку</a></li>
+        <li><a href="/bid/delete">Удалить заявку</a></li>
+        <li><a href="/car/create">Создать автомобиль</a></li>
+        <li><a href="/car/list">Список автомобилей</a></li>
+        <li><a href="/user/">Выход</a></li>
+    </ul>
+</div>
+
+</body>
+</html>
+

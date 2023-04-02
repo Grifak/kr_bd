@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car-list</title>
+    <link th:href="@{/css/table.css}" rel="stylesheet" >
+</head>
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th> ВИН номер </th>
+        <th> Регистрационный номер </th>
+        <th> Модель </th>
+        <th> Марка </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${carList.empty}">
+        <td colspan="2"> Нет автомобилей </td>
+    </tr>
+    <tr th:each="car : ${carList}">
+        <td><span th:text="${car.vin}"> Number </span></td>
+        <td><span th:text="${car.registrationNumber}"> Name </span></td>
+        <td><span th:text="${car.model}"> Status </span></td>
+        <td><span th:text="${car.brand}"> Amount </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

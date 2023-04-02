@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create bid</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet" >
+</head>
+<body>
+<form class="form" method="post" th:action="@{/bid/create}" th:object="${bid}">
+
+    <div class="form__grid-1">
+
+        <div class="form__cell-1">
+            <h3 class="form__head-3">Создание новой заявки</h3>
+        </div>
+
+        <div class="form__cell-2">
+            <select th:field="*{name}">
+                <option value="0">Выберите услугу</option>
+                <option value="Замена масла в двигатели">Замена масла в двигатели</option>
+                <option value="Замена масла в коробке передач">Замена масла в коробке передач</option>
+                <option value="TO">ТО</option>
+            </select>
+        </div>
+
+        <div class="form__cell-2">
+            <select class="form-control" id="dropDownList" th:field = "*{registrationNumber}">
+                <option value="0">выберите регистрационный номер автомобиля</option>
+                <option th:each="car : ${carList}" th:value="${car.registrationNumber}" th:text="${car.registrationNumber}"></option>
+            </select>
+        </div>
+
+        <div class="form__cell-6">
+            <input type="submit" value="Создать" class="form__submit-1">
+        </div>
+
+    </div> <!-- .form__grid-1 -->
+</form>
+</body>
+</html>

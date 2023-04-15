@@ -1,0 +1,160 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+body{
+    background-color: antiquewhite;
+}
+
+.nesolestag-enadenud {
+    width: 615px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+.kesednsoled:after,
+.kesednsoled:before {
+    content: ".";
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+    clear: both;
+}
+.ico-wrap {
+    color: sandybrown;
+    width: 80px;
+    height: 80px;
+    margin: 30px 18px 5px 5px;
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    border: 2px solid sandybrown;
+    float: left;
+    border-radius: 30px;
+}
+.ico-contact {
+    line-height: 1.9 !important;
+}
+.meanous-andscoev {
+    float: left;
+    margin-bottom: 20px;
+}
+.aio-icon-title {
+    font-size: 25px;
+    color: sandybrown;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+@media (max-width: 767px) {
+    .meanous-andscoev,
+    .ico-wrap {
+        float: none;
+        text-align: center;
+    }
+    .ico-wrap {
+        margin: 0 auto 15px auto;
+    }
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: sandybrown;
+    padding: 20px 10px;
+}
+
+.wrap-logo {
+    display: flex;
+    align-items: center;
+
+}
+
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header a {
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+header a:hover {
+    background-color: sandybrown;
+    color: #fff;
+}
+
+header a.active {
+    background-color: sandybrown;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+footer{
+    position: absolute;/*относительное позиционирование*/
+    bottom: 0;
+    left: 0;
+    width: 100%;/*на всю ширину*/
+    padding: 20px 50px;/*поля для контента*/
+    background: sandybrown;/*цвет футера*/
+    justify-content: center;/*в центре по горизонтали*/
+    align-items: center;/*в центре по вертикали*/
+    flex-direction: column;
+    margin-top: 100px;/*отступ сверху*/
+}
+
+.social,
+.menu{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    flex-wrap: wrap;/*разрешен перенос на новую строку*/
+}
+.social li,
+.menu li{
+    list-style: none;/*удалить черные маркеры*/
+}
+.social li a {
+    font-size: 2em;/*размер иконок*/
+    color: #fff;/*цвет иконок*/
+    margin: 0 10px;
+    display: inline-block;/*отображать как строчно-блочный элемент*/
+    transition: 0.5s;/*плавный переход*/
+}
+.menu li a {
+    font-size: 1.2em;/*размер ссылок меню*/
+    color: #fff;/*цвет ссылок меню*/
+    opacity: 0.75;/*значение прозрачности*/
+    margin: 0 15px;
+    text-decoration: none;/*ссылка без подчеркивания*/
+    display: inline-block;
+}
+.menu li a:hover {
+    opacity: 1;
+}
+
+footer p {
+    color: #fff;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1em;
+}

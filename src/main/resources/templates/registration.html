@@ -11,45 +11,38 @@
         <a class="logo">Автосервис SWAP</a>
     </div>
     <nav>
-        <a class="active" href="/user/menu">Главная</a>
-        <a href="/user/">Выйти</a>
+        <a class="active" href="/user/register">Регистрация</a>
+        <a href="/user/login">Авторизация</a>
     </nav>
 </header>
-<form class="form" method="post" th:action="@{/car/create}" th:object="${car}">
+
+
+<form class="form" method="post" th:action="@{/user/register}" th:object="${regRequest}">
 
     <div class="form__grid-1">
 
         <div class="form__cell-1">
-            <h3 class="form__head-3">Добавить автомобиль</h3>
+            <h3 class="form__head-3">Регистрация</h3>
         </div>
 
         <div class="form__cell-2">
-            <input type="text" placeholder="ВИН" class="form__input-1" th:field="*{vin}">
+            <input type="text" placeholder="Логин" class="form__input-1" th:field="*{login}">
         </div>
 
         <div class="form__cell-3">
-            <input type="text" placeholder="Регистрационный номер" class="form__input-2" th:field="*{registrationNumber}">
+            <input type="text" placeholder="Пароль" class="form__input-2" th:field="*{password}">
         </div>
 
         <div class="form__cell-3">
-            <input type="text" placeholder="Модель" class="form__input-2" th:field="*{model}">
-        </div>
-
-        <div class="form__cell-3">
-            <input type="text" placeholder="Марка" class="form__input-2" th:field="*{brand}">
-        </div>
-
-        <div class="form__cell-2">
-            <input type="text" placeholder="Лошадиные силы" class="form__input-1" th:field="*{horsePower}">
+            <input type="text" placeholder="Почта" class="form__input-2" th:field="*{email}">
         </div>
 
         <div class="form__cell-6">
-            <input type="submit" value="Создать" class="form__submit-1">
+            <input type="submit" value="Зарегистрироваться" class="form__submit-1">
         </div>
 
     </div> <!-- .form__grid-1 -->
 </form>
-</body>
 
 <footer>
     <ul class="social">
@@ -64,4 +57,5 @@
     </ul>
     <p>©2023 Gr1fak | All Rights Reserved</p>
 </footer>
+</body>
 </html>

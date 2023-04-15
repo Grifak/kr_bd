@@ -2,7 +2,12 @@ package com.example.kr_bd.controller;
 
 import lombok.RequiredArgsConstructor;
 import com.example.kr_bd.model.Car;
+import com.example.kr_bd.model.CarModification;
+import com.example.kr_bd.model.Modification;
+import com.example.kr_bd.model.Sorting;
 import com.example.kr_bd.service.CarService;
+import java.util.List;
+import javax.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,15 +31,26 @@ public class CarController {
     }
 
     @PostMapping("/create")
-    public String createCar(Model model, @ModelAttribute Car car){
-        carService.create(car);
+    public String createCar(HttpSession httpSession, @ModelAttribute Car car){
+        Long userId = (Long) httpSession.getAttribute("userId");
+        carService.create(car, userId);
 
         return "redirect:/user/menu";
     }
 
     @GetMapping("/list")
-    public String carList(Model model){
-        model.addAttribute("carList", carService.getAllCar(1L));
+    public String carList(
+            @ModelAttribute("sorting") Sorting sorting,
+            Model model,
+            HttpSession httpSession
+    ){
+        log.info("Sorting: acs = {}", sorting.getAsc());
+        Boolean asc = sorting.getAsc() == null || sorting.getAsc();
+
+        Long userId = (Long) httpSession.getAttribute("userId");
+        List<Car> carList = carService.getAllCar(userId, asc);
+
+        model.addAttribute("carList", carList);
 
         return "car-list";
     }

@@ -16,8 +16,8 @@
 </header>
 <body>
 <div>
-    <h2>Сортировка авто по марке</h2>
-    <form method="get" th:action="@{/car/list}" th:object="${sorting}">
+    <h2>Сортировка модификаций по силе</h2>
+    <form method="get" th:action="@{/modif/list}" th:object="${sorting}">
         <label><input name="sort" type="radio" value="true" th:field="*{asc}"> По возрастанию<br></label>
 
         <label> <input name="sort" type="radio" value="false" th:field="*{asc}">По убыванию<br></label>
@@ -30,26 +30,18 @@
 
 <table class="table">
     <thead>
-<tr>
-        <th> ВИН номер </th>
-        <th> Регистрационный номер </th>
-        <th> Модель </th>
-        <th> Марка </th>
-        <th> Лошадиные силы </th>
-        <th> Сила модификаций </th>
+    <tr>
+        <th> Название</th>
+        <th> Силы </th>
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${carList.empty}">
-        <td colspan="2"> Нет автомобилей </td>
+    <tr th:if="${modifList.empty}">
+        <td colspan="2"> Нет модификаций </td>
     </tr>
-    <tr th:each="car : ${carList}">
-        <td><span th:text="${car.vin}"> Number </span></td>
-        <td><span th:text="${car.registrationNumber}"> Name </span></td>
-        <td><span th:text="${car.model}"> Status </span></td>
-        <td><span th:text="${car.brand}"> Amount </span></td>
-        <td><span th:text="${car.horsePower}"> HorsePower </span></td>
-        <td><span th:text="${car.modifPower}"> ModifPower </span></td>
+    <tr th:each="modif : ${modifList}">
+        <td><span th:text="${modif.name}"> Name </span></td>
+        <td><span th:text="${modif.modifPower}"> Power </span></td>
     </tr>
     </tbody>
 </table>

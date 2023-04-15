@@ -6,6 +6,15 @@
     <link th:href="@{/css/login.css}" rel="stylesheet" >
 </head>
 <body>
+<header>
+    <div class="wrap-logo">
+        <a href="/user/"> Автосервис SWAP</a>
+    </div>
+    <nav>
+        <a class="active" href="/user/register">Регистрация</a>
+        <a href="/user/login">Авторизация</a>
+    </nav>
+</header>
 
 <form class="form" method="post" th:action="@{/user/login}" th:object="${authRequest}">
 
@@ -26,8 +35,21 @@
         <div class="form__cell-6">
             <input type="submit" value="Войти" class="form__submit-1">
         </div>
-
-    </div> <!-- .form__grid-1 -->
+    </div>
 </form>
+
+<footer>
+    <ul class="social">
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-linkedin"><ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+    </ul>
+    <ul class="menu">
+        <li><a href="/info">О нас</a></li>
+        <li><a href="/contact">Контакты</a></li>
+    </ul>
+    <p>©2023 Gr1fak | All Rights Reserved</p>
+</footer>
 </body>
 </html>

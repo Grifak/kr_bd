@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add modif</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <style>
+        select {
+            width: 200px; /* Ширина списка в пикселах */
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+</head>
+<header>
+    <div class="wrap-logo">
+        <a class="logo">Автосервис SWAP</a>
+    </div>
+    <nav>
+        <a class="active" href="/user/menu">Главная</a>
+        <a href="/user/">Выйти</a>
+    </nav>
+</header>
+<body>
+    <form class="form" th:action="@{/modif/add}" th:object="${carModif}" method='POST'>
+
+        <div class="form__cell-1">
+            <h3 class="form__head-3">Добавить модификацию</h3>
+        </div>
+        <div class="form__cell-3">
+            Выберите вин номер авто:
+                <select th:field="*{carId}">
+                    <option th:each="car : ${carList}"
+                            th:text="${car.vin}"
+                            th:value="${car.id}">
+                    </option>
+                </select>
+        </div>
+
+
+        <div class="form__cell-3">
+            Выберите модификацию:
+                <div class="container">
+                    <div class="row">
+                        <select class="js-select2" multiple="multiple" th:field="*{modifIdList}">
+                            <option th:each="modif : ${modifList}"
+                                    th:text="${modif.name}"
+                                    th:value="${modif.id}">
+                            </option>
+                        </select>
+                    </div>
+                    <script>
+                        $(".js-select2").select2({
+                            closeOnSelect : false,
+                            placeholder : "Placeholder",
+                            allowHtml: true,
+                            allowClear: true
+                        })
+                    </script>
+                </div>
+        </div>
+        <div class="form__cell-6">
+            <input type="submit" value="Добавить модификацию" class="form__submit-1">
+        </div>
+    </form>
+
+</body>
+
+<footer>
+    <ul class="social">
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-linkedin"><ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+    </ul>
+    <ul class="menu">
+        <li><a href="/info">О нас</a></li>
+        <li><a href="/contact">Контакты</a></li>
+    </ul>
+    <p>©2023 Gr1fak | All Rights Reserved</p>
+</footer>
+</html>

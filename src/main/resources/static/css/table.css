@@ -1,3 +1,7 @@
+body{
+    background-color: antiquewhite;
+}
+
 .table {
     width: 100%;
     border: none;
@@ -43,4 +47,70 @@
 }
 .table tbody tr:last-child td:last-child {
     border-radius: 0 0 20px 0;
+}
+form.form-example {
+    display: table;
+}
+
+div.form-example {
+    display: table-row;
+}
+
+label,
+input {
+    display: table-cell;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-right: 10px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: sandybrown;
+    padding: 20px 10px;
+}
+
+.wrap-logo {
+    display: flex;
+    align-items: center;
+
+}
+
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header a {
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+header a:hover {
+    background-color: sandybrown;
+    color: #fff;
+}
+
+header a.active {
+    background-color: sandybrown;
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }

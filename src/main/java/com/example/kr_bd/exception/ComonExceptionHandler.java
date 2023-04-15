@@ -16,4 +16,11 @@ public class ComonExceptionHandler {
         log.error(ex.getMessage());
         return "error";
     }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    private String handleInternalError(Exception ex){
+        log.error(ex.getMessage());
+        return "500_error";
+    }
 }

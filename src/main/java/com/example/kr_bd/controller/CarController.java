@@ -1,13 +1,12 @@
 package com.example.kr_bd.controller;
 
-import lombok.RequiredArgsConstructor;
 import com.example.kr_bd.model.Car;
-import com.example.kr_bd.model.CarModification;
-import com.example.kr_bd.model.Modification;
+import com.example.kr_bd.model.DeleteModifRequest;
 import com.example.kr_bd.model.Sorting;
 import com.example.kr_bd.service.CarService;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,6 +50,7 @@ public class CarController {
         List<Car> carList = carService.getAllCar(userId, asc);
 
         model.addAttribute("carList", carList);
+        model.addAttribute("deleteRequest", new DeleteModifRequest());
 
         return "car-list";
     }

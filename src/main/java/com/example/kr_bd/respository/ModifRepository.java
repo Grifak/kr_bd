@@ -5,6 +5,7 @@ import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.jooq.DSLContext;
 import org.jooq.OrderField;
+import static org.jooq.generated.tables.CarModification.CAR_MODIFICATION;
 import static org.jooq.generated.tables.Modification.MODIFICATION;
 import org.springframework.stereotype.Repository;
 
@@ -19,5 +20,17 @@ public class ModifRepository {
         return dsl.selectFrom(MODIFICATION)
                 .orderBy(condition)
                 .fetchInto(Modification.class);
+    }
+
+    public List<Modification> getAllModifByCarId(Long carId){
+        return dsl.select(
+                MODIFICATION.ID,
+                MODIFICATION.NAME,
+                MODIFICATION.MODIF_POWER
+        ).from(MODIFICATION)
+                .innerJoin(CAR_MODIFICATION).on(MODIFICATION.ID.eq(CAR_MODIFICATION.MODIF_ID))
+                .where(CAR_MODIFICATION.CAR_ID.eq(carId))
+                .fetchInto(Modification.class);
+
     }
 }

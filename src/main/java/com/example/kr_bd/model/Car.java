@@ -1,6 +1,7 @@
 package com.example.kr_bd.model;
 
 import lombok.Data;
+import java.util.List;
 
 @Data
 public class  Car {
@@ -11,4 +12,5 @@ public class  Car {
     String brand;
     String horsePower;
     String modifPower;
+    List<Modification> modifList;
 }

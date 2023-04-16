@@ -3,6 +3,7 @@ package com.example.kr_bd.controller;
 import lombok.RequiredArgsConstructor;
 import com.example.kr_bd.model.Car;
 import com.example.kr_bd.model.CarModification;
+import com.example.kr_bd.model.DeleteModifRequest;
 import com.example.kr_bd.model.Modification;
 import com.example.kr_bd.model.Sorting;
 import com.example.kr_bd.service.CarService;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,6 +67,18 @@ public class ModificationController {
         carService.addModif(carModification);
 
         return "redirect:/user/menu";
+    }
+
+    @PostMapping("/delete")
+    public String deleteModif(
+            @ModelAttribute("deleteRequest") DeleteModifRequest deleteModifRequest,
+            Model model
+    ){
+        log.info("Delete request = {}", deleteModifRequest);
+        model.addAttribute("sorting", new Sorting());
+        carService.deleteModif(deleteModifRequest);
+
+        return "redirect:/car/list";
     }
 
     @GetMapping("/photo")

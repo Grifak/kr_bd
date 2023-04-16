@@ -37,6 +37,7 @@
         <th> Марка </th>
         <th> Лошадиные силы </th>
         <th> Сила модификаций </th>
+        <th> Установленные модификаций </th>
     </tr>
     </thead>
     <tbody>
@@ -50,6 +51,21 @@
         <td><span th:text="${car.brand}"> Amount </span></td>
         <td><span th:text="${car.horsePower}"> HorsePower </span></td>
         <td><span th:text="${car.modifPower}"> ModifPower </span></td>
+        <td>
+            <form class="form" th:action="@{/modif/delete}" th:object="${deleteRequest}" method='POST'>
+                <select th:field="*{modifId}">
+                    <option th:each="modif : ${car.modifList}"
+                            th:text="${modif.name}"
+                            th:value="${modif.id}">
+                    </option>
+                </select>
+                <input type="hidden" th:value="${car.id}" th:name="carId" th:id="carId"/>
+
+                <div class="form__cell-6">
+                    <input type="submit" value="Удалить модификаицию" class="form__submit-1">
+                </div>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>
